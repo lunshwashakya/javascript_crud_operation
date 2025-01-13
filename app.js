@@ -18,12 +18,16 @@ function populateTodos(data) {
   const todoListElement = document.getElementById('todo_list');
   const todoHtml = data
     .map((todo) => {
-      return `<li><input type ="text" value="$todo.title id="todo_${index}" name="todo_${index}">}
-      <button>Update</button></form>
+      return `<li><form><input type ="text" value="$todo.title id="todo_${index}" name="todo_${index}">}
+      <button onclick="updateToDo(event, ${index}, '${todo.id}')">Update</button></form>
       </li>`;
     })
     .join('');
   todoListElement.innerHTML = todoHtml;
+}
+
+async function updateTodo(event,index, id) {
+    console.log({id });
 }
 
 async function createToDo(todo) {
